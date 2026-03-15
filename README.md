@@ -69,3 +69,21 @@ npx playwright show-report
 ## Author
 
 Prajwal Joshi
+
+## Test Execution
+
+### Terminal Test Run
+
+![Test Run](screenshots/test-run.png)
+
+### Playwright HTML Report
+
+<p align="center">
+  <img src="screenshots/report1.png" width="400"/>
+  <img src="screenshots/report2.png" width="400"/>
+</p>
+
+<p align="center">
+  <img src="screenshots/report3.png" width="400"/>
+  <img src="screenshots/report4.png" width="400"/>
+</p>
