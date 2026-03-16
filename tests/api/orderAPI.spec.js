@@ -2,19 +2,22 @@ import { test, expect } from '@playwright/test';
 
 test('Get Products API', async ({ request }) => {
 
-  const response = await request.get('https://dummyjson.com/products');
+  const response = await request.get('https://dummyjson.com/products', {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
 
-  // Verify status code
-  expect(response.status()).toBe(200);
+  // Validate response is successful
+  expect(response.ok()).toBeTruthy();
 
-  // Convert response to JSON
   const data = await response.json();
 
-  // Validate response data
+  // Validate products exist
   expect(data.products.length).toBeGreaterThan(0);
 
-  // Validate first product structure
-  expect(data.products[0]).toHaveProperty('title');
-  expect(data.products[0]).toHaveProperty('price');
+  // Validate product fields
+  expect(data.products[0].title).toBeDefined();
+  expect(data.products[0].price).toBeDefined();
 
 });
