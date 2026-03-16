@@ -3,7 +3,12 @@ const { test, expect } = require('@playwright/test')
 test('Get Products API', async ({ request }) => {
 
  const response = await request.get(
-  'https://fakestoreapi.com/products'
+  'https://fakestoreapi.com/products',
+  {
+    headers: {
+      'User-Agent': 'Playwright-Test'
+    }
+  }
  )
 
  expect(response.status()).toBe(200)
